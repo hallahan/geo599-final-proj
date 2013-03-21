@@ -144,14 +144,14 @@ class ArcpyInterface:
         Resolutions is an array of strings that specify
         the resolutions the rasters will be resampled to.
         """
-        # print("Beginning to process NDVI...")
+        print("Beginning to process NDVI...")
 
-        # print("NDVI: Reclassifying raster... (original raster)")
-        # arcpy.Reclassify_3d(self.input_ndvi, "Value", self.ndvi_mapping, self.dir_output+"rclsNdvi30", "DATA")
-        # print("NDVI: Processing Zonal Stats... (original raster)")
-        # zonal_stats_ndvi_raster = arcpy.sa.ZonalStatistics(self.landslide_shp, "FID", self.input_ndvi, "MEAN", "DATA")
-        # print("NDVI: Reclassifying Zonal Stats... (original raster)")
-        # arcpy.Reclassify_3d(zonal_stats_ndvi_raster, "Value", self.ndvi_mapping, self.dir_output+"zsRclsNdvi30",  "DATA")
+        print("NDVI: Reclassifying raster... (original raster)")
+        arcpy.Reclassify_3d(self.input_ndvi, "Value", self.ndvi_mapping, self.dir_output+"rclsNdvi30", "DATA")
+        print("NDVI: Processing Zonal Stats... (original raster)")
+        zonal_stats_ndvi_raster = arcpy.sa.ZonalStatistics(self.landslide_shp, "FID", self.input_ndvi, "MEAN", "DATA")
+        print("NDVI: Reclassifying Zonal Stats... (original raster)")
+        arcpy.Reclassify_3d(zonal_stats_ndvi_raster, "Value", self.ndvi_mapping, self.dir_output+"zsRclsNdvi30",  "DATA")
 
         for res in resolutions:
             print("NDVI: Resampling to " + res + "m raster...")
