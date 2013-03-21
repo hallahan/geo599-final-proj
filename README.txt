@@ -8,7 +8,7 @@ a reasonable amount of time to wait for a tool, so a batch script
 is used instead.
 
 Further details about the scope of the study in which this data
-processing serves can be found in `documentation.html`.
+processing serves can be found in `landslide_study.pdf`.
 
 #Usage
 

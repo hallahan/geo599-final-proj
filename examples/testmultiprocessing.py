@@ -1,3 +1,6 @@
+# This demonstrates simple usage of the multiprocessing
+# library in python.
+
 import multiprocessing
 
 class Example:
