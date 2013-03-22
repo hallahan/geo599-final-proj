@@ -109,32 +109,33 @@ if __name__ == '__main__':
         # single proccess mode of execution
         print("Starting batch processing...")
         print(str(datetime.now()))
-        # arcObj.process_slope(slope_resolutions)
-        # arcObj.process_aspect(aspect_resolutions)
+        arcObj.process_slope(slope_resolutions)
+        arcObj.process_aspect(aspect_resolutions)
         arcObj.process_ndvi(ndvi_resolutions)
 
         # multiprocessing mode of execution
 
         # This way of executing 3 functions in parallel as child processes works, but
         # there is a bug with ArcGIS licensing. arcpy exits when it detects that multiple
-        # processes are utilizing the library.
+        # processes are utilizing the library (ArcGIS 10.1).
 
-        # specifying separate processes to do the work in parallel
-        # slope_proc  = multiprocessing.Process(target=arcObj.process_slope, args=(slope_resolutions,))
-        # aspect_proc = multiprocessing.Process(target=arcObj.process_aspect, args=(aspect_resolutions,))
-        # ndvi_proc   = multiprocessing.Process(target=arcObj.process_ndvi, args=(ndvi_resolutions,))
+        if (False):
+            # specifying separate processes to do the work in parallel
+            slope_proc  = multiprocessing.Process(target=arcObj.process_slope, args=(slope_resolutions,))
+            aspect_proc = multiprocessing.Process(target=arcObj.process_aspect, args=(aspect_resolutions,))
+            ndvi_proc   = multiprocessing.Process(target=arcObj.process_ndvi, args=(ndvi_resolutions,))
 
-        # # 3 child proc are now executing
-        # slope_proc.start()
-        # aspect_proc.start()
-        # ndvi_proc.start()
+            # 3 child proc are now executing
+            slope_proc.start()
+            aspect_proc.start()
+            ndvi_proc.start()
 
-        # slope_proc.join() # waiting for slope proc to finish
-        # print("SLOPE Processing Complete!")
-        # aspect_proc.join() # waiting for aspect proc to finish
-        # print("ASPECT Processing Complete!")
-        # ndvi_proc.join()
-        # print("NDVI Processing Complete!")
+            slope_proc.join() # waiting for slope proc to finish
+            print("SLOPE Processing Complete!")
+            aspect_proc.join() # waiting for aspect proc to finish
+            print("ASPECT Processing Complete!")
+            ndvi_proc.join()
+            print("NDVI Processing Complete!")
 
         print("ALL PROCESSING FINISHED. EXITING...")
         print(str(datetime.now()))
