@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Geo599-final-proj by hallahan</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Geo599-final-proj</h1>
+        <p>GEO599 Final Project</p>
+
+        <p class="view"><a href="https://github.com/hallahan/geo599-final-proj">View the Project on GitHub <small>hallahan/geo599-final-proj</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/hallahan/geo599-final-proj/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/hallahan/geo599-final-proj/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/hallahan/geo599-final-proj">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>Overview</h1>
+
+<p>This python script automates the processing of several large
+LIDAR and Landsat datasets. A batch script is required, as opposed
+to an ArcGIS tool, because the rasters take a very long time to
+display in Arc, and the processing takes several hours. This is not
+a reasonable amount of time to wait for a tool, so a batch script
+is used instead.</p>
+
+<p>Further details about the scope of the study in which this data
+processing serves can be found in <code>landslide_study.pdf</code>.</p>
+
+<h1>Usage</h1>
+
+<p>Make sure you have set your python path to be the python executable that ArcGIS uses. The only python library you need to have installed
+is arcpy.</p>
+
+<p>NOTE: This script processes 65GB of data. Make sure you have this much
+hard drive space availible. Also, this tool will require about 5 hours
+of run time.</p>
+
+<p>You may just run the tool with no args if you have the following paths for your input, intermediate, and output directories:</p>
+
+<p>INPUT:</p>
+
+<pre><code>D:/gis-prog-proj/input/
+</code></pre>
+
+<p>INTERMEDIATE:</p>
+
+<pre><code>D:/gis-prog-proj/intermediate/
+</code></pre>
+
+<p>OUTPUT:</p>
+
+<pre><code>D:/gis-prog-proj/output/
+</code></pre>
+
+<p>All input rasters that will be processed should be in the input
+directory. The intermediate and output directories need to be empty.</p>
+
+<p>To run the script, you execute main.py:</p>
+
+<pre><code>python main.py
+</code></pre>
+
+<p>You may pipe the output of the tool to a log file as follows:</p>
+
+<pre><code>python main.py &gt; log.txt
+</code></pre>
+
+<p>Alternatively, you can specify the input, intermediate, and output
+directories. This is useful if you are low on hard drive space. All
+three folder paths must be specified.</p>
+
+<pre><code>python main.py &lt;input-dir&gt; &lt;intermediate-dir&gt; &lt;output-dir&gt;
+</code></pre>
+
+<p>NOTE: The intermediate directory requires the most space (42GB).</p>
+
+<h1>Outputs</h1>
+
+<p>The output rasters are in the <code>output</code> directory. The naming convention
+is somewhat cryptic, because the arcpy tool only allows a maximum of
+13 characters for file names.</p>
+
+<p>All directories that begin with <code>rcls</code> are the reclassified rasters
+that did not run through Zonal Statistiscs.</p>
+
+<p>All directories that begin with <code>zsrcls</code> are reclassified rasters
+that DID run through Zonal Statistics.</p>
+
+<p>The after rcls is <code>asp</code>, <code>sl</code>, or <code>ndvi</code>. These are the types of
+rasters -- Aspect, Slope, and NDVI, respectively.</p>
+
+<p>The final number defines the resolution of raster. <code>200</code> means
+"200m x 200m".</p>
+
+<h1>Contributors</h1>
+
+<p>Nicholas Hallahan - <a href="mailto:nick@theoutpost.io">nick@theoutpost.io</a></p>
+
+<p>Rubini Mahalingnam - <a href="mailto:santhans@onid.orst.edu">santhans@onid.orst.edu</a></p>
+
+<h1>License</h1>
+
+<p>GNU GPLv3 License <a href="http://en.wikipedia.org/wiki/GNU_General_Public_License">http://en.wikipedia.org/wiki/GNU_General_Public_License</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/hallahan">hallahan</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
